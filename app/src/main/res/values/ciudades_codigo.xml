@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ciudad">
+        <item>Barcelona</item>
+        <item>Madrid</item>
+        <item>Donostia/San Sebastián</item>
+        <item>Valladolid</item>
+        <item>Alicante</item>
+    </string-array>
+    <string-array name="codigo">
+        <item>08019</item>
+        <item>28079</item>
+        <item>20069</item>
+        <item>47186</item>
+        <item>03014</item>
+    </string-array>
+</resources>

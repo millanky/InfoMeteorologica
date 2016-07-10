@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/diaTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempMaxLabel"
+        android:layout_below="@+id/diaTxt"
+        android:text="Temperatura máxima: "/>
+    <TextView
+        android:id="@+id/tempMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@+id/tempMaxLabel"
+        android:layout_toEndOf="@+id/tempMaxLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempMinLabel"
+        android:text="Temperatura mínima: "
+        android:layout_below="@+id/tempMaxLabel"/>
+    <TextView
+        android:id="@+id/tempMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@id/tempMinLabel"
+        android:layout_toEndOf="@id/tempMinLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humMaxLabel"
+        android:text="Humedad máxima: "
+        android:layout_below="@+id/tempMinLabel"/>
+    <TextView
+        android:id="@+id/humMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@id/humMaxLabel"
+        android:layout_toEndOf="@id/humMaxLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/humMinLabel"
+        android:text="Humedad mínima: "
+        android:layout_below="@+id/humMaxLabel"/>
+    <TextView
+        android:id="@+id/humMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_alignBaseline="@id/humMinLabel"
+        android:layout_toEndOf="@id/humMinLabel" />
+
+</RelativeLayout>
