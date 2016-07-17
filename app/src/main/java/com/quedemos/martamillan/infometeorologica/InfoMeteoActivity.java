@@ -2,7 +2,6 @@ package com.quedemos.martamillan.infometeorologica;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -11,11 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 
@@ -27,8 +23,8 @@ public class InfoMeteoActivity extends AppCompatActivity{
     private PredicDiaAdapter mAdapter; //nos permite acceso a nuestro objeto PredicDia
     private ListView predicDiaList;
     private LinearLayout layout;
-    String codigoCiudad;
-    String ciudad;
+    private String codigoCiudad;
+    private String ciudad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

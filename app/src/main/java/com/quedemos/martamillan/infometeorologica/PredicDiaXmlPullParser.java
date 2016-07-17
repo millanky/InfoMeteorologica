@@ -28,6 +28,7 @@ public class PredicDiaXmlPullParser {
         // variables temporales
         PredicDia curPredicDia = null;
         String curText = "";
+        String curEstadoCielo = "";
         ArrayList<String> currTemperaturasDia = new ArrayList<String>();
         ArrayList<String> currPrecipitacionesDia = new ArrayList<String>();
         String curPeriodo = "";
@@ -47,6 +48,7 @@ public class PredicDiaXmlPullParser {
             boolean caseHumedad = false;
             boolean casePrecip = false;
             boolean casePrecipGeneral = false;
+            boolean caseEstadoCielo = false;
 
 
             while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -60,6 +62,7 @@ public class PredicDiaXmlPullParser {
                             curPredicDia = new PredicDia();
                             curPredicDia.setDia(xpp.getAttributeValue(null,"fecha"));
                             casePrecipGeneral = true;
+                            caseEstadoCielo = true;
                         } else if (tagname.equalsIgnoreCase("temperatura")) {
                             caseTemperatura = true;
                             currTemperaturasDia = new ArrayList<String>();
@@ -71,6 +74,8 @@ public class PredicDiaXmlPullParser {
                                 curPeriodo = "";
                             }
                             casePrecip = true;
+                        } else if (tagname.equalsIgnoreCase("estado_cielo")) {
+                            curEstadoCielo = xpp.getAttributeValue(null,"descripcion");
                         }
                         break;
 
@@ -149,8 +154,16 @@ public class PredicDiaXmlPullParser {
                                 caseHumedad = false;
                             }
                         } else if (tagname.equalsIgnoreCase("prob_precipitacion") && casePrecipGeneral) { //primera probabilidad de precipitacion equivale a 00-24 (la general)
-                            curPredicDia.setProbPrecipitacion(curText);
-                            casePrecipGeneral = false;
+                            if(android.text.TextUtils.isDigitsOnly(curText)) {
+                                curPredicDia.setProbPrecipitacion(curText);
+                                casePrecipGeneral = false;
+                            }
+                        } else if (tagname.equalsIgnoreCase("estado_cielo") && caseEstadoCielo) { //primer estado cielo equivale a 00-24 (la general)
+                            if(android.text.TextUtils.isDigitsOnly(curText)){
+                                curPredicDia.setEstadoCieloImg(curText);
+                                curPredicDia.setEstadoCielo(curEstadoCielo);
+                                caseEstadoCielo = false;
+                            }
                         }
                         break;
 

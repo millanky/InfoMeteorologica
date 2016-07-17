@@ -14,6 +14,8 @@ public class PredicDia {
     private String humedadMax;
     private String humedadMin;
     private String probPrecipitacion;
+    private String estadoCielo;
+    private String estadoCieloImg;
     private ArrayList<String> temperaturasDia = new ArrayList<String>();
     private ArrayList<String> precipitacionesDia = new ArrayList<String>();
 
@@ -71,5 +73,21 @@ public class PredicDia {
 
     public void setPrecipitacionesDia(ArrayList<String> precipitacionesDia) {
         this.precipitacionesDia = precipitacionesDia;
+    }
+
+    public String getEstadoCielo() {
+        return estadoCielo;
+    }
+
+    public void setEstadoCielo(String estadoCielo) {
+        this.estadoCielo = estadoCielo;
+    }
+
+    public String getEstadoCieloImg() {
+        return estadoCieloImg;
+    }
+
+    public void setEstadoCieloImg(String estadoCieloImg) {
+        this.estadoCieloImg = estadoCieloImg;
     }
 }

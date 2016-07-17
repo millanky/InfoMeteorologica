@@ -1,17 +1,24 @@
 package com.quedemos.martamillan.infometeorologica;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -50,6 +57,8 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
             TextView precip2 = (TextView) firstRow.findViewById(R.id.precip2);
             TextView precip3 = (TextView) firstRow.findViewById(R.id.precip3);
             TextView precip4 = (TextView) firstRow.findViewById(R.id.precip4);
+            TextView estadoCielo = (TextView) firstRow.findViewById(R.id.estadoCielo);
+            ImageView imgEstadoCielo = (ImageView) firstRow.findViewById(R.id.imgTempActual);
 
             //CALCULO TEMPERATURA ACTUAL
             int hora = c.get(Calendar.HOUR_OF_DAY);
@@ -65,6 +74,7 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
 
             tempMaxActual.setText("↑ " + getItem(pos).getTemperaturaMax()+"º");
             tempMinActual.setText("↓ " + getItem(pos).getTemperaturaMin()+"º");
+            estadoCielo.setText(getItem(pos).getEstadoCielo());
 
             temp1.setText(getItem(pos).getTemperaturasDia().get(0)+"ºC");
             temp2.setText(getItem(pos).getTemperaturasDia().get(1)+"ºC");
@@ -74,6 +84,8 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
             precip2.setText(getItem(pos).getPrecipitacionesDia().get(1)+"%");
             precip3.setText(getItem(pos).getPrecipitacionesDia().get(2)+"%");
             precip4.setText(getItem(pos).getPrecipitacionesDia().get(3)+"%");
+
+            new ImageLoadTask("http://www.aemet.es/imagenes/png/estado_cielo/"+getItem(pos).getEstadoCieloImg()+"_g.png", imgEstadoCielo).execute();
 
             return firstRow;
 
@@ -122,6 +134,40 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
 
             return row;
         }
+    }
+    public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
+
+        private String url;
+        private ImageView imageView;
+
+        public ImageLoadTask(String url, ImageView imageView) {
+            this.url = url;
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... params) {
+            try {
+                URL urlConnection = new URL(url);
+                HttpURLConnection connection = (HttpURLConnection) urlConnection
+                        .openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                Bitmap myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            super.onPostExecute(result);
+            imageView.setImageBitmap(result);
+        }
+
     }
 
 }
