@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">InfoMeteorologica</string>
+    <string name="app_name">Meteo</string>
+    <string name="pronostico">Pronóstico actual:</string>
+    <string name="temperatura_minima">Temperatura mínima:</string>
+    <string name="temperatura_maxima">Temperatura máxima:</string>
+    <string name="humedad_maxima">Humedad máxima:</string>
+    <string name="humedad_minima">Humedad mínima:</string>
+    <string name="_00_06_h">00-06 h</string>
+    <string name="_06_12_h">06-12 h</string>
+    <string name="_12_18_h">12-18 h</string>
+    <string name="_18_24_h">18-24 h</string>
+    <string name="temp">Temp</string>
+    <string name="hum">Hum</string>
 </resources>

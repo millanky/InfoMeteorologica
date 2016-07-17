@@ -16,18 +16,10 @@ import android.util.Log;
 
 public class Downloader {
 
-    //Tag for Log statements
-    private static String myTag = "StackSites";
+    private static String myTag = "TiempoDia";
 
-    //Handler msg that represents we are posting a progress update.
     static final int POST_PROGRESS = 1;
 
-    /************************************************
-     * Download a file from the Internet and store it locally
-     *
-     * @param URL - the url of the file to download
-     * @param fos - a FileOutputStream to save the downloaded file to.
-     ************************************************/
     public static void DownloadFromUrl(String URL, FileOutputStream fos) {  //this is the downloader method
         try {
 
@@ -63,17 +55,14 @@ public class Downloader {
              * Start reading the and writing our file.
              ************************************************/
             byte data[] = new byte[1024];
-            //long total = 0;
-            int count;
-            //loop and read the current chunk
-            while ((count = bis.read(data)) != -1) {
-                //keep track of size for progress.
-                //total += count;
 
-                //write this chunk
+            int count;
+
+            while ((count = bis.read(data)) != -1) {
+
                 bos.write(data, 0, count);
             }
-            //Have to call flush or the  file can get corrupted.
+
             bos.flush();
             bos.close();
 

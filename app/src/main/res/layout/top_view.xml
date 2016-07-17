@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="13ª"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="65sp"
+        android:padding="10dp"
+        android:id="@+id/tempActual"
+        android:textColor="@color/white"
+        android:layout_gravity="end"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="MAX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:paddingTop="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/tempMaxActual"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/tempActual" />
+
+    <TextView
+        android:text="MIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:id="@+id/tempMinActual"
+        android:textColor="@color/white"
+        android:layout_below="@+id/tempMaxActual"
+        android:layout_alignStart="@+id/tempMaxActual" />
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/translucent"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/tempMinActual">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/pronostico"
+            android:text="@string/pronostico" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:id="@+id/separator"
+            android:layout_marginRight="160dp"
+            android:layout_marginBottom="15dp"
+            android:layout_below="@+id/pronostico"
+            android:layout_height="1dp"
+            android:background="#ffffff" />
+
+        <TextView
+            android:layout_width="match_parent"
+            app:layout_widthPercent="25%"
+            android:textSize="14sp"
+            android:id="@+id/hora1"
+            android:layout_below="@+id/separator"
+            android:layout_height="wrap_content"
+            android:text="@string/_00_06_h"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            app:layout_widthPercent="25%"
+            android:textSize="14sp"
+            android:id="@+id/hora2"
+            android:layout_below="@+id/separator"
+            android:layout_toRightOf="@+id/hora1"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/_06_12_h"/>
+        <TextView
+            android:layout_width="match_parent"
+            app:layout_widthPercent="25%"
+            android:textSize="14sp"
+            android:id="@+id/hora3"
+            android:layout_below="@+id/separator"
+            android:layout_toRightOf="@+id/hora2"
+            android:layout_height="wrap_content"
+            android:text="@string/_12_18_h"
+            android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            app:layout_widthPercent="25%"
+            android:textSize="14sp"
+            android:id="@+id/hora4"
+            android:layout_below="@+id/separator"
+            android:layout_toRightOf="@+id/hora3"
+            android:layout_height="wrap_content"
+            android:text="@string/_18_24_h"
+            android:textAlignment="center"/>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+            android:textSize="20sp"
+            android:id="@+id/temp1"
+            android:textAlignment="center"
+            android:layout_below="@id/hora1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+            android:textSize="20sp"
+            android:id="@+id/temp2"
+            android:layout_toRightOf="@+id/temp1"
+            android:textAlignment="center"
+            android:layout_below="@id/hora1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+            android:textSize="20sp"
+            android:id="@+id/temp3"
+            android:layout_toRightOf="@+id/temp2"
+            android:textAlignment="center"
+            android:layout_below="@id/hora1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="25%"
+            android:textSize="20sp"
+            android:id="@+id/temp4"
+            android:layout_toRightOf="@+id/temp3"
+            android:textAlignment="center"
+            android:layout_below="@id/hora1"/>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:layout_widthPercent="12.5%"
+            android:src="@drawable/gota"
+            android:id="@+id/img1"
+            android:layout_below="@id/temp1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="12.5%"
+            android:text="0mm"
+            android:textSize="16sp"
+            android:id="@+id/precip1"
+            android:layout_below="@+id/temp1"
+            android:layout_toRightOf="@+id/img1"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:layout_widthPercent="12.5%"
+            android:src="@drawable/gota"
+            android:id="@+id/img2"
+            android:layout_below="@id/temp1"
+            android:layout_toRightOf="@+id/precip1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="12.5%"
+            android:text="0mm"
+            android:textSize="16sp"
+            android:id="@+id/precip2"
+            android:layout_below="@+id/temp1"
+            android:layout_toRightOf="@+id/img2"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:layout_widthPercent="12.5%"
+            android:src="@drawable/gota"
+            android:id="@+id/img3"
+            android:layout_below="@id/temp1"
+            android:layout_toRightOf="@+id/precip2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="12.5%"
+            android:text="0mm"
+            android:textSize="16sp"
+            android:id="@+id/precip3"
+            android:layout_below="@+id/temp1"
+            android:layout_toRightOf="@+id/img3"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            app:layout_widthPercent="12.5%"
+            android:src="@drawable/gota"
+            android:id="@+id/img4"
+            android:layout_below="@id/temp1"
+            android:layout_toRightOf="@+id/precip3"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="12.5%"
+            android:text="0mm"
+            android:textSize="16sp"
+            android:id="@+id/precip4"
+            android:layout_below="@+id/temp1"
+            android:layout_toRightOf="@+id/img4"/>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</RelativeLayout>

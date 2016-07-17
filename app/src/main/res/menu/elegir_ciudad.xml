@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+    android:id="@+id/alicante"
+    android:title="Alicante"/>
+    <item
+        android:id="@+id/barcelona"
+        android:title="Barcelona"/>
+    <item
+        android:id="@+id/madrid"
+        android:title="Madrid"/>
+    <item
+        android:id="@+id/san_sebastian"
+        android:title="San Sebastián"/>
+    <item
+        android:id="@+id/valladolid"
+        android:title="Valladolid"/>
+
+</menu>

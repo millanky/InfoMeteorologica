@@ -1,5 +1,8 @@
 package com.quedemos.martamillan.infometeorologica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by MartaMillan on 10/7/16.
  */
@@ -10,6 +13,10 @@ public class PredicDia {
     private String temperaturaMin;
     private String humedadMax;
     private String humedadMin;
+    private String probPrecipitacion;
+    private ArrayList<String> temperaturasDia = new ArrayList<String>();
+    private ArrayList<String> precipitacionesDia = new ArrayList<String>();
+
 
     public String getDia() {
         return dia;
@@ -42,10 +49,27 @@ public class PredicDia {
         this.humedadMin = humedadMin;
     }
 
-    @Override
-    public String toString() {
-        return "PredicDia [dia=" + dia + ", temperaturaMax=" + temperaturaMax + ", temperaturaMin="
-                + temperaturaMin + ", humedadMax=" + humedadMax +", humedadMin=" + humedadMin + "]";
+    public ArrayList<String> getTemperaturasDia() {
+        return temperaturasDia;
     }
 
+    public void setTemperaturasDia(ArrayList<String> temperaturasDia) {
+        this.temperaturasDia = temperaturasDia;
+    }
+
+    public String getProbPrecipitacion() {
+        return probPrecipitacion;
+    }
+
+    public void setProbPrecipitacion(String probPrecipitacion) {
+        this.probPrecipitacion = probPrecipitacion;
+    }
+
+    public ArrayList<String> getPrecipitacionesDia() {
+        return precipitacionesDia;
+    }
+
+    public void setPrecipitacionesDia(ArrayList<String> precipitacionesDia) {
+        this.precipitacionesDia = precipitacionesDia;
+    }
 }
