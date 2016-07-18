@@ -100,6 +100,7 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
             TextView humMax = (TextView) row.findViewById(R.id.humMax);
             TextView humMin = (TextView) row.findViewById(R.id.humMin);
             TextView precip = (TextView) row.findViewById(R.id.precip);
+            ImageView imgCielo = (ImageView) row.findViewById(R.id.imgCielo);
 
             int diaSemana = c.get(Calendar.DAY_OF_WEEK);
             diaSemana += pos;
@@ -131,10 +132,12 @@ public class PredicDiaAdapter extends ArrayAdapter<PredicDia> {
             humMax.setText("↑"+getItem(pos).getHumedadMax()+"%");
             humMin.setText("↓"+getItem(pos).getHumedadMin()+"%");
             precip.setText(getItem(pos).getProbPrecipitacion()+"%");
+            new ImageLoadTask("http://www.aemet.es/imagenes/png/estado_cielo/"+getItem(pos).getEstadoCieloImg()+"_g.png", imgCielo).execute();
 
             return row;
         }
     }
+
     public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
         private String url;

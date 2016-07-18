@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import java.io.FileNotFoundException;
 
@@ -22,7 +23,7 @@ public class InfoMeteoActivity extends AppCompatActivity{
 
     private PredicDiaAdapter mAdapter; //nos permite acceso a nuestro objeto PredicDia
     private ListView predicDiaList;
-    private LinearLayout layout;
+    private RelativeLayout layout;
     private String codigoCiudad;
     private String ciudad;
 
@@ -39,7 +40,7 @@ public class InfoMeteoActivity extends AppCompatActivity{
 
         predicDiaList = (ListView)findViewById(R.id.dayList);
 
-        layout = (LinearLayout)findViewById(R.id.container);
+        layout = (RelativeLayout) findViewById(R.id.container);
 
         if (ciudad.equalsIgnoreCase("barcelona")) {
             layout.setBackground(getResources().getDrawable(R.drawable.barcelona));
